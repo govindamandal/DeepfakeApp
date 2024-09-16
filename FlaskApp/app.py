@@ -14,7 +14,7 @@ def index():
 
     return render_template('index.html')
 
-@app.route('/extract-video')
+@app.route('/upload-video', methods=['POST'])
 def extract_video():
 
     return render_template('index.html')
