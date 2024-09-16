@@ -16,7 +16,7 @@ def index():
 
 @app.route('/upload-video', methods=['POST'])
 def extract_video():
-
+    
     return render_template('index.html')
 
 if __name__ == '__main__':
