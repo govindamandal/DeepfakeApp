@@ -12,8 +12,19 @@
 </head>
 <body class="bg-gray-100">
     <!-- Header -->
-    <header class="bg-blue-600 p-4 text-white">
-        <h1 class="text-center text-2xl">Deepfake Detection App</h1>
+    <header class="s-header">
+
+        <div class="s-header__logo">
+            <a href="/">
+                Home
+            </a>
+        </div>
+
+        <div class="s-header__content">
+            <h1 class="text-center text-2xl">Deepfake Detection App</h1>
+        </div>
+
+
     </header>
 
     <!-- Main Content -->
@@ -23,8 +34,8 @@
     </main>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <!-- Footer -->
-    <footer class="bg-blue-600 p-4 text-center text-white">
-        <p>&copy; 2024 Deepfake App - Govinda. All rights reserved.</p>
+    <footer class="bg-blue-600 p-4 text-center text-black">
+        <p>&copy; {{ year }} Deepfake App - Govinda. All rights reserved.</p>
     </footer>
 </body>
 </html>

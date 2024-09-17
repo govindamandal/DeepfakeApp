@@ -1,13 +1,22 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container p-5">
-    <h1>Welcome to Deepfake Video Detection</h1>
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6 mt-5">
-            <div class="bg-white p-5 rounded shadow-sm border">
-                <form action="/upload-video" class="dropzone" id="video-upload"></form>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 mt-5">
+      <div class="bg-white p-5 rounded shadow-sm border">
+        <form action="/upload-video" class="dropzone" id="video-upload">
+            <div class="dz-progress">
+                <span class="dz-upload" data-dz-uploadprogress></span>
             </div>
-        </div>
+        </form>
+      </div>
     </div>
+  </div>
+  <div class="frame-container" id="result-container">
+
+  </div>
+  <h2>Output Frames</h2> <span class="text-info">Showing 10 frames only</span>
+  <div class="row" id="frame-container">
+  </div>
 </div>
 {% endblock %}
