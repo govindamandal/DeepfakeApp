@@ -3,3 +3,8 @@ FlaskApp/ML-Models
 FlaskApp/static/frames
 flaskenv
 FlaskApp/uploads
+paper/paper.aux
+paper/paper.log
+paper/paper.bcf
+paper/paper.run.xml
+paper/paper.synctex.gz
