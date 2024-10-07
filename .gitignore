@@ -8,3 +8,7 @@ paper/paper.log
 paper/paper.bcf
 paper/paper.run.xml
 paper/paper.synctex.gz
+paper/paper.bbl
+paper/paper.blg
+paper/paper.fdb_latexmk
+paper/paper.fls
