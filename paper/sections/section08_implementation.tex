@@ -1,8 +1,17 @@
-\textbf{Deepfakes} represent manipulated media—be it images, videos, or audio—that alter the original context, often creating misleading content that can deceive viewers. Using advanced AI techniques such as Generative Adversarial Networks (GANs), deepfake creators can modify facial expressions, voices, or even simulate entire videos. Notably, these manipulations can be convincing, as demonstrated by viral videos, including fabricated celebrity appearances.\\
-
-
- While deepfakes may serve benign purposes such as satire or entertainment, they also pose significant threats across various domains. From privacy concerns to political manipulation and corporate espionage, deepfakes have the potential to undermine public trust and damage reputations. The rapid improvement in deepfake quality requires equally advanced detection mechanisms to mitigate their spread.\\
-
-Traditional methods for detecting deepfakes rely heavily on convolutional neural networks (CNNs) and recurrent neural networks (RNNs), which focus on local pixel patterns. However, these models may struggle with identifying subtle or widespread inconsistencies across video frames. In contrast, Vision Transformers (ViTs) excel at capturing long-range dependencies by using a self-attention mechanism, making them a promising approach for detecting deepfakes. By processing entire video frames as sequences, ViTs can identify minor artifacts and manipulations more effectively.\\
-
-In this paper, we present a novel deepfake detection system using ViTs, which outperforms conventional CNN-based approaches. Our work contributes to improving the detection accuracy and robustness of models against adversarial manipulations. The following sections detail our methodology, experiments, and results, underscoring the potential of ViTs in enhancing digital content authenticity.\\
+\section{Implementation}
+The implementation of the deepfake detection model involves several key stages, from data preprocessing to model evaluation. The overall process can be divided into the following steps:
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=1\textwidth]{images/ViT-App-Architecture.png}
+  \caption{Application of Implementation}\cite{df01}
+  \label{fig:vit_app_architecture}
+\end{figure}
+\subsection{Data Preprocessing}
+Before training the model, the input videos from the FaceForensics++ dataset undergo preprocessing. The videos are split into individual frames, and face detection is applied to isolate only the facial regions. These cropped facial frames are then resized into consistent dimensions and saved for further use. This step ensures that the model focuses on the facial area, which is critical for detecting subtle manipulations in deepfake videos.
+\subsection{Dataset Splitting}
+The processed frames are divided into training and testing sets. This splitting allows the model to learn from the training set and generalize to unseen data from the testing set, which helps in evaluating its performance.
+\subsection{Loading Data with DataLoader}
+A DataLoader is utilized to efficiently load batches of data (videos and their corresponding labels) into the model during training. This process ensures that the GPU/CPU is optimally used by feeding data in manageable chunks, reducing memory overhead, and speeding up the training process.
+\subsection{Model Training}: The model is trained using a supervised learning approach, with the video labels (real or fake) serving as the ground truth. The training process involves optimizing the model's parameters using a loss function (e.g., cross-entropy loss) and an optimizer like Adam. During training, the model learns to minimize the error between its predictions and the actual labels by updating its internal weights.
+\subsection{Evaluation and Testing}
+After training, the model is evaluated on the test set using metrics such as accuracy, precision, recall, and F1-score. A confusion matrix is generated to assess the model’s performance in distinguishing between real and fake videos. The trained model is then exported for deployment.
